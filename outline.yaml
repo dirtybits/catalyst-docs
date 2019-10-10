@@ -1,0 +1,34 @@
+chapters:
+  - title: Getting Started
+    path: catalyst-specs
+    items:
+      - index
+      - catalyst-specs
+      - getting-started
+      - pools
+      - nodes
+  - title: 'Developers team & Contributors'
+    path: devs
+    items:
+      - index
+      - sponsors
+  - title: 'Exchanges and useful links'
+    path: links
+    items:
+      - index
+  - title: 'Funding System'
+    path: funding
+    items:
+      - index
+  - title: 'Analytics'
+    path: analytics
+    items:
+      - index
+  - title: API Documentation
+    path: api-documentation
+    items:
+      - index
+      - daemon-http-rpc-api
+      - daemon-json-rpc-api
+      - wallet-rpc-api
+
