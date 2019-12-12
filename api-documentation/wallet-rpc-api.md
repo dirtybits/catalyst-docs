@@ -9,33 +9,33 @@ Currently, you can use the following official Turtle client bindings, they are t
 * [Python](https://github.com/turtlecoin/turtlecoin-rpc-python)
 * [Go](https://github.com/turtlecoin/turtlecoin-rpc-go)
 
-## NB: catalyst-service is deprecated and not supported. Information in this article may be out of date or incorrect. Use [wallet-api](https://catalystdevelopment.github.io/) instead
+**catalyst-service is deprecated and not supported. Information in this article may be out of date or incorrect. Use [wallet-api](https://catalystdevelopment.github.io/) instead**
 
 ## Installation
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--NodeJS-->
+
+
 ```
 npm install turtlecoin-rpc
 ```
 
-<!--PHP-->
+
 ```
 composer require turtlecoin/turtlecoin-rpc-php
 ```
 
-<!--Python-->
+
 ```
 pip3 install turtlecoin
 ```
 
-<!--Go-->
+
 ```
 go get github.com/turtlecoin/turtlecoin-rpc-go
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 ## Interacting with the API
 
@@ -56,9 +56,9 @@ To make a JSON RPC request to your TurtleCoin RPC Wallet you should use a GET re
 | `<service address>` | IP of TurtleCoin RPC Wallet, if RPC Wallet is located on local machine it is either 127.0.0.1 or localhost         |
 | `<service port>`    | TurtleCoin RPC Wallet port, by default it is bound to 17280 port, but it can be manually bound to any port you want |
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--NodeJS-->
+
+
 ```js
 const TurtleService = require('turtlecoin-rpc').TurtleService
 
@@ -80,7 +80,7 @@ const service = new TurtleService({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 use TurtleCoin\TurtleService;
@@ -94,7 +94,7 @@ $config = [
 $catalystService = new TurtleService($config);
 ```
 
-<!--Python-->
+
 ```py
 from turtlecoin import Walletd
 
@@ -105,7 +105,7 @@ rpc_password = 'passw0rd'
 walletd = Walletd(rpc_password, rpc_host, rpc_port)
 ```
 
-<!--Go-->
+
 ```go
 import (
   "fmt"
@@ -122,7 +122,7 @@ service := trpc.Walletd{
   RPCPassword: rpcPassword}
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 ## reset
 
@@ -135,14 +135,14 @@ service := trpc.Walletd{
 | scanHeight | No        | The height to begin scanning for transactions at. This can greatly speed up wallet syncing time. | int    |
 
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"reset","params":{"scanHeight":100000}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.reset({
   scanHeight: 100000
@@ -153,7 +153,7 @@ service.reset({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $scanHeight = 100000;
@@ -161,14 +161,14 @@ $response = $catalystService->reset($scanHeight);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 scan_height = 100000
 response = walletd.reset(scan_height)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 scanHeight := 0 // starting height to scan
 response, err := service.Reset(scanHeight)
@@ -179,7 +179,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -202,14 +202,14 @@ No output in case of success.
 No input.
 No output in case of success.
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"save","params":{}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.save().then(() => {
   // do something
@@ -218,20 +218,20 @@ service.save().then(() => {
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $response = $catalystService->save();
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 response = walletd.save()
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 response, err := service.Save()
 if err != nil {
@@ -241,7 +241,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -266,14 +266,14 @@ No input.
 | viewSecretKey | Private view key | string |
 
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getViewKey","params":{}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.getViewKey().then((result) => {
   // do something
@@ -282,20 +282,20 @@ service.getViewKey().then((result) => {
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $response = $catalystService->getViewKey();
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 response = walletd.get_view_key()
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 response, err := service.GetViewKey()
 if err != nil {
@@ -305,7 +305,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -336,14 +336,14 @@ if err != nil {
 | spendSecretKey | Private spend key | string |
 | spendPublicKey | Public spend key  | string |
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getSpendKeys","params":{"address":"TRTLxxxx..."}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.getSpendKeys({
   address: 'TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
@@ -354,7 +354,7 @@ service.getSpendKeys({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $address = 'TRTLxxxx...';
@@ -362,14 +362,14 @@ $response = $catalystService->getSpendKeys($address);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 address = 'TRTLxxxx...'
 response = walletd.get_spend_keys(address)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 address := "TRTLxxxx..."
 response, err := service.GetSpendKeys(address)
@@ -380,7 +380,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -413,14 +413,14 @@ if err != nil {
 
 > **Note:** The first wallet address that is generated when the container is created is the deterministic address. Only one wallet from a multi-wallet container can be deterministic. If a non-deterministic address is given, the RPC response will be an error with the message: "Keys not deterministic."
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getMnemonicSeed","params":{"address":"TRTLxxxx..."}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.getMnemonicSeed({
   address: 'TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
@@ -431,7 +431,7 @@ service.getMnemonicSeed({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $address = 'TRTLxxxx...';
@@ -439,14 +439,14 @@ $response = $catalystService->getMnemonicSeed($address);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 address = 'TRTLxxxx...'
 response = walletd.get_mnemonic_seed(address)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 address := "TRTLxxxx..."
 response, err := service.GetMnemonicSeed(address)
@@ -457,7 +457,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -486,14 +486,14 @@ No input.
 | lastBlockHash   | Hash of the last known block                                               | string |
 | peerCount       | Connected peers number                                                     | int    |
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getStatus","params":{}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.getStatus().then((result) => {
   // do something
@@ -502,20 +502,20 @@ service.getStatus().then((result) => {
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $response = $catalystService->getStatus();
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 response = walletd.get_status()
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 response, err := service.GetStatus()
 if err != nil {
@@ -525,7 +525,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -554,14 +554,14 @@ No input.
 | --------- | ------------------------------------------------- | ------ |
 | addresses | Array of strings, where each string is an address | array  |
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getAddresses","params":{}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.getAddresses().then((result) => {
   // do something
@@ -570,20 +570,20 @@ service.getAddresses().then((result) => {
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $response = $catalystService->getAddresses();
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 response = walletd.get_addresses()
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 response, err := service.GetAddresses()
 if err != nil {
@@ -593,7 +593,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -623,14 +623,14 @@ if err != nil {
 | newAddress     | No        | Is this a new address being created? If so, blocks before the creation timestamp will not be scanned. Defaults to true if neither keys are given, as it is guaranteed to be a new address. | bool   |
 | scanHeight     | No        | The height to begin scanning for transactions at. Only applies if a public/secret key is supplied. This can greatly speed up wallet syncing time.                                          | int    |
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"createAddress","params":{}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.createAddress({
   spendSecretKey: '',
@@ -642,7 +642,7 @@ service.createAddress({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $spendSecretKey = null;
@@ -651,7 +651,7 @@ $response = $catalystService->createAddress($spendSecretKey, $spendPublicKey);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 spend_secret_key = ''
 spend_public_key = ''
@@ -659,7 +659,7 @@ response = walletd.create_address(spend_secret_key, spend_public_key)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 spendSecretKey := ""
 spendPublicKey := ""
@@ -673,7 +673,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -701,14 +701,14 @@ if err != nil {
 
 In case of success returns an empty JSON object.
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"deleteAddress","params":{"address":"TRTLxxxx..."}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.deleteAddress({
   address: 'TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
@@ -717,7 +717,7 @@ service.deleteAddress({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $address = 'TRTLxxxx...';
@@ -725,7 +725,7 @@ $response = $catalystService->deleteAddress($address);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 address = 'TRTLxxxx...'
 response = walletd.delete_address(address)
@@ -734,7 +734,7 @@ response = walletd.delete_address(address)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 address := "TRTLxxxx..."
 response, err := service.DeleteAddress(address)
@@ -745,7 +745,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -778,14 +778,14 @@ if err != nil {
 
 > **Note:** Balances are expressed in shells, so a balance of 10000 is equal to 100.00 TRTL
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getBalance","params":{"address":"TRTLxxxx..."}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 // Address optional
 service.getBalance({
@@ -795,7 +795,7 @@ service.getBalance({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $address = 'TRTLxxxx...';
@@ -803,14 +803,14 @@ $response = $catalystService->getBalance($address);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 address = 'TRTLxxxx...'
 response = walletd.get_balance(address)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 address := "TRTLxxxx..."
 response, err := service.GetBalance(address)
@@ -821,7 +821,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -853,14 +853,14 @@ Argument              | Description                                             
 --------------------- | ------------------------------------------------------- | ------
 blockHashes		      | Array of strings, where each element is a block hash	    | array
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getBlockHashes","params":{"firstBlockIndex":0,"blockCount":3}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.getBlockHashes({
   firstBlockIndex: 500000,
@@ -870,7 +870,7 @@ service.getBlockHashes({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $firstBlockIndex = 0;
@@ -879,7 +879,7 @@ $response = $catalystService->getBlockHashes($firstBlockIndex, $blockCount);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 first_block_index = 0
 block_count = 3
@@ -887,7 +887,7 @@ response = walletd.get_block_hashes(first_block_index, block_count)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 firstBlockIndex := 0
 blockCount := 3
@@ -899,7 +899,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -946,14 +946,14 @@ items	   | **Array of**                                        |	               
            | transactionHashes                                   | Array of strings, where each string is a transaction hash    | array      |
 
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransactionHashes","params":{"firstBlockIndex":400000,"blockCount":100000}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.getTransactionHashes({
   addresses: [
@@ -967,7 +967,7 @@ service.getTransactionHashes({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $blockCount = 100000;
@@ -983,7 +983,7 @@ $response = $catalystService->getTransactionHashes(
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 block_count = 100000
 block_hash = '6c285...'
@@ -994,7 +994,7 @@ response = walletd.get_transaction_hashes(addresses, block_hash, block_count, pa
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 addresses := []string{"TRTLxxxx..."}
 blockHash := ""
@@ -1009,7 +1009,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -1074,14 +1074,14 @@ extra               | Hash of the  transaction                                  
 paymentId           | Payment ID of the transaction (optional) (64char hex string)                  | string
 transfers           | Array of address (string), amount (int)                                       | array
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransactions","params":{"firstBlockIndex":400000,"blockCount":100000}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.getTransactions({
   addresses: [
@@ -1095,7 +1095,7 @@ service.getTransactions({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $blockCount = 100000;
@@ -1111,7 +1111,7 @@ $response = $catalystService->getTransactions(
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 block_count = 100000
 block_hash = '6c285...'
@@ -1122,7 +1122,7 @@ response = walletd.get_transactions(addresses, block_hash, block_count, payment_
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 addresses := []string{"TRTLxxxx..."}
 blockHash := ""
@@ -1137,7 +1137,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -1216,14 +1216,14 @@ Argument               | Description                                            
 ---------------------- | ------------------------------------------------------------------------------ | ------
 transactionHashes      | Array of strings, where each string is a hash of an unconfirmed transaction	  | array
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getUnconfirmedTransactionHashes","params":{}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.getUnconfirmedTransactionHashes({
   address: 'TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
@@ -1232,7 +1232,7 @@ service.getUnconfirmedTransactionHashes({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $addresses = null;
@@ -1240,14 +1240,14 @@ $response = $catalystService->getUnconfirmedTransactionHashes($addresses);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 addresses = []
 response = walletd.get_unconfirmed_transaction_hashes(addresses)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 addresses := []string{"TRTLxxxx..."}
 response, err := service.GetUnconfirmedTransactionHashes(addresses)
@@ -1258,7 +1258,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -1307,14 +1307,14 @@ extra               | Hash of the  transaction                                  
 paymentId           | Payment ID of the transaction (optional)  (64char hex string)                 | string
 transfers           | Array of addresses (string), amount (int)                                     | array
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getTransaction","params":{"transactionHash":"55a23..."}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.getTransaction({
   transactionHash: 'd01e448f7b631cebd989e3a150258b0da59c66f96adecec392bbf61814310751'
@@ -1323,7 +1323,7 @@ service.getTransaction({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $transactionHash = '55a23...';
@@ -1331,14 +1331,14 @@ $response = $catalystService->getTransaction($transactionHash);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 transaction_hash = '55a23...'
 response = walletd.get_transaction(transaction_hash)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 transactionHash := "55a23..."
 response, err := service.GetTransaction(transactionHash)
@@ -1349,7 +1349,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -1406,14 +1406,14 @@ Argument              | Description                         | Format
 --------------------- | ----------------------------------- | ------
 transactionHash	      | Hash of the sent transaction		    | string
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"sendTransaction","params":{"transfers":[{"address":"TRTLxxxx...","amount":5000}],"fee":10,"anonymity":3,"changeAddress":"TRTLyyyy..."}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.sendTransaction({
   transfers: [
@@ -1425,7 +1425,7 @@ service.sendTransaction({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $anonymity = 3;
@@ -1447,7 +1447,7 @@ $response = $catalystService->sendTransaction(
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 anonymity = 3
 fee = 10
@@ -1467,7 +1467,7 @@ response = walletd.send_transaction(
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 addresses := []string{"TRTLyyyy..."} // can be empty
 unlockTime := 0
@@ -1491,7 +1491,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -1533,14 +1533,14 @@ Argument              | Description                         | Format
 --------------------- | ----------------------------------- | ------
 transactionHash	      | Hash of the sent transaction		    | string
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"createDelayedTransaction","params":{"transfers":[{"address":"TRTLxxxx...","amount":5000}],"fee":10,"anonymity":3,"changeAddress":"TRTLyyyy..."}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.createDelayedTransaction({
   transfers: [
@@ -1552,7 +1552,7 @@ service.createDelayedTransaction({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $anonymity = 3;
@@ -1574,7 +1574,7 @@ $response = $catalystService->createDelayedTransaction(
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 anonymity = 3
 fee = 10
@@ -1594,7 +1594,7 @@ response = walletd.create_delayed_transaction(
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 addresses := []string{"TRTLyyyy..."} // can be empty
 unlockTime := 0
@@ -1618,7 +1618,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -1644,34 +1644,34 @@ Argument              | Description                                             
 --------------------- | --------------------------------------------------------------- | ------
 transactionHashes	  | Array of strings, where each string is a transaction hash		      | array
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getDelayedTransactionHashes","params":{}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.getDelayedTransactionHashes().then((result) => {
   // do something
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $response = $catalystService->getDelayedTransactionHashes();
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 response = walletd.get_delayed_transaction_hashes()
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 response, err := service.GetDelayedTransactionHashes()
 if err != nil {
@@ -1681,7 +1681,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -1709,14 +1709,14 @@ transactionHash       | Yes            | Valid, existing delayed transaction    
 
 In case of success returns an empty JSON object.
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"deleteDelayedTransaction","params":{"transactionHash":"b3e37..."}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.deleteDelayedTransaction({
   transactionHash: 'd01e448f7b631cebd989e3a150258b0da59c66f96adecec392bbf61814310751'
@@ -1725,7 +1725,7 @@ service.deleteDelayedTransaction({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $transactionHash = 'b3e37...';
@@ -1733,7 +1733,7 @@ $response = $catalystService->deleteDelayedTransaction($transactionHash);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 transaction_hash = '50d83...'
 response = walletd.delete_delayed_transaction(transaction_hash)
@@ -1742,7 +1742,7 @@ response = walletd.delete_delayed_transaction(transaction_hash)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 transactionHash := "50d83..."
 response, err := service.DeleteDelayedTransaction(transactionHash)
@@ -1753,7 +1753,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -1779,14 +1779,14 @@ transactionHash       | Yes            | Valid, existing delayed transaction    
 
 In case of success returns an empty JSON object.
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"sendDelayedTransaction","params":{"transactionHash":"c37cd..."}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.sendDelayedTransaction({
   transactionHash: 'd01e448f7b631cebd989e3a150258b0da59c66f96adecec392bbf61814310751'
@@ -1795,7 +1795,7 @@ service.sendDelayedTransaction({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $transactionHash = 'c37cd...';
@@ -1804,7 +1804,7 @@ $response = $catalystService->sendDelayedTransaction($transactionHash);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 transaction_hash = '50d83...'
 response = walletd.send_delayed_transaction(transaction_hash)
@@ -1813,7 +1813,7 @@ response = walletd.send_delayed_transaction(transaction_hash)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 transactionHash := "50d83..."
 response, err := service.SendDelayedTransaction(transactionHash)
@@ -1824,7 +1824,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -1863,14 +1863,14 @@ Argument              | Description                         | Format
 transactionHash	      | Hash of the sent transaction		    | string
 
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"sendFusionTransaction","params":{"threshold":1000000,"anonymity":3,"addresses":["TRTLxxxx...","TRTLyyyy..."],"destinationAddress":"TRTLzzzz..."}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.sendFusionTransaction({
   destinationAddress: 'TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ'
@@ -1879,7 +1879,7 @@ service.sendFusionTransaction({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $threshold = 1000000;
@@ -1891,7 +1891,7 @@ $response = $catalystService->sendFusionTransaction($threshold, $anonymity, $add
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 threshold = 1000000
 anonymity = 3
@@ -1902,7 +1902,7 @@ response = walletd.send_fusion_transaction(threshold, anonymity, addresses, dest
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 threshold := 1000000
 addresses := []string{"TRTLxxxx...", "TRTLyyyy..."}
@@ -1915,7 +1915,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -1948,14 +1948,14 @@ Argument            | Description                                               
 totalOutputCount	  | Total number of unspent outputs of the specified addresses. | int
 fusionReadyCount    | Number of outputs that can be optimized.                    | int
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"estimateFusion","params":{"threshold":1000000,"addresses":["TRTLxxxx...","TRTLyyyy..."]}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.estimateFusion({
   threshold: 100000000,
@@ -1967,7 +1967,7 @@ service.estimateFusion({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $threshold = 1000000;
@@ -1977,7 +1977,7 @@ $response = $catalystService->estimateFusion($threshold, $addresses);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 threshold = 1000000
 addresses = ['TRTLxxxx...', 'TRTLyyyy...']
@@ -1985,7 +1985,7 @@ response = walletd.estimate_fusion(threshold, addresses)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 threshold := 1000000
 addresses := []string{"TRTLxxxx...","TRTLyyyy..."}
@@ -1997,7 +1997,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -2029,14 +2029,14 @@ Argument              | Description                         | Format
 --------------------- | ----------------------------------- | ------
 integratedAddress	    | The created integrated address		  | string
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"createIntegratedAddress","params":{"paymentId":"7FE73BD90EF05DEA0B5C15FC78696619C50DD5F2BA628F2FD16A2E3445B1922F", "address":"TRTLxxxx..."}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.createIntegratedAddress({
   address: 'TRTLv1pacKFJk9QgSmzk2LJWn14JGmTKzReFLz1RgY3K9Ryn7783RDT2TretzfYdck5GMCGzXTuwKfePWQYViNs4avKpnUbrwfQ',
@@ -2046,7 +2046,7 @@ service.createIntegratedAddress({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $address = 'TRTLxxxx...';
@@ -2056,7 +2056,7 @@ $response = $catalystService->createIntegratedAddress($address, $paymentId);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 address = 'TRTLxxxx...'
 payment_id = '7FE73BD90EF05DEA0B5C15FC78696619C50DD5F2BA628F2FD16A2E3445B1922F'
@@ -2064,7 +2064,7 @@ response = walletd.create_integrated_address(address, payment_id)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 address := "TRTLxxxx..."
 paymentID := "7FE73BD90EF05DEA0B5C15FC78696619C50DD5F2BA628F2FD16A2E3445B1922F"
@@ -2076,7 +2076,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -2103,21 +2103,21 @@ Argument              | Description                         | Format
 address               | The address of the node owner 		  | string
 amount                | The fee that will be sent to the node owners address with each transaction | int
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","id":1,"password":"passw0rd","method":"getFeeInfo","params":{}}' http://localhost:17280/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 service.getFeeInfo().then((result) => {
   // do something
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $response = $catalystService->getFeeInfo();
@@ -2125,13 +2125,13 @@ $response = $catalystService->getFeeInfo();
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 response = walletd.get_fee_info()
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 response, err := service.GetFeeInfo()
 if err != nil {
@@ -2141,7 +2141,7 @@ if err != nil {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 

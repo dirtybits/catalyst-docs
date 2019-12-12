@@ -7,3 +7,4 @@ That’s because people that may have inside information tend to act based on th
 We’ve decided to give full transparency, all project donations are totally public and can be traced through the funding system.
 
 Saying this, if you want to invest in Catalyst, and become a member of our community, we are always open for discussion.
+

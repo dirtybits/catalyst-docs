@@ -1,10 +1,9 @@
 # Funding System
 
-
 ## Why
 The Catalyst Funding System was put in to action by members of the Catalyst Community. Our goal is to have our community members fund each other in order to help Catalyst grow.
 
-![Screencast](images/funding.png)
+![funding](images/funding.png)
 
 ## About
 Right now, it’s still a work in progress, though you can access and test it yourself, and tell us your opinion. Feel free to create your own proposals, and contribute to the active ones.

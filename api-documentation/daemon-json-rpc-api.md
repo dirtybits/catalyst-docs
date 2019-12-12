@@ -132,7 +132,7 @@ count            | Current chain height | int
 status           | Status of request | string
 
 
-```sh
+```bash
 curl -d '{"jsonrpc":"2.0", "method":"getblockcount", "params":{}}' http://localhost:17291/json_rpc
 ```
 
@@ -190,7 +190,7 @@ Argument         | Description          | Format
 result           | Hash of previous block | int
 
 
-```sh
+```bash
 curl -d '{"jsonrpc":"2.0","method":"on_getblockhash","params":[123456]}' http://localhost:17291/json_rpc
 ```
 
@@ -257,11 +257,11 @@ reserved_offset | Offset reserved | int
 status | Status of the network | string
 
 
-```sh
+```bash
 curl -d '{"jsonrpc":"2.0","method":"getblocktemplate","params":{"reserve_size":200,"wallet_address":"TRTLxxxx..."}}' http://localhost:17291/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 daemon.getBlockTemplate({
   reserveSize: 200,
@@ -330,14 +330,14 @@ Argument         | Description          | Format
 ---------------- | -------------------- | ------
 status           | Status of request | string
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","method":"submitblock","params":["0100b...."]}' https://localhost:17291/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 daemon.submitBlock({
   blockBlob: '...'
@@ -348,7 +348,7 @@ daemon.submitBlock({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $blockBlob = '0100b...';
@@ -356,21 +356,21 @@ $response = $catalystd->submitBlock($blockBlob);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 block_blob = '0100b...'
 response = catalystd.submit_block(block_blob)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 blockBlob := "0100b..."
 response := daemon.SubmitBlock(blockBlob)
 fmt.Println(response)
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -408,14 +408,14 @@ reward | reward of the block | str
 timestamp | the time at which the block is occured on chain since Unix epoch | int
 status | status of the request | string
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","method":"getlastblockheader","params":{}}' http://localhost:17291/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 daemon.getLastBlockHeader().then((result) => {
   // do something
@@ -424,26 +424,26 @@ daemon.getLastBlockHeader().then((result) => {
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $response = $catalystd->getLastBlockHeader();
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 response = catalystd.get_last_block_header()
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 response := daemon.GetLastBlockHeader()
 fmt.Println(response)
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -500,14 +500,14 @@ reward | reward of the block | str
 timestamp | the time at which the block is occured on chain since Unix epoch | int
 status | status of the request | string
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","method":"getblockheaderbyhash","params":{"hash":"30706..."}}' http://localhost:17291/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 daemon.getBlockHeaderByHash({
   hash: '7d6db7b77232d41c19d898e81c85ecf08c4e8dfa3434f975a319f6261a695739'
@@ -518,7 +518,7 @@ daemon.getBlockHeaderByHash({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $hash = '30706...';
@@ -526,21 +526,21 @@ $response = $catalystd->getBlockHeaderByHash($hash);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 hash = '30706...'
 response = catalystd.get_block_header_by_hash(hash)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 hash := "30706..."
 response := daemon.GetBlockHeaderByHash(hash)
 fmt.Println(response)
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -597,14 +597,14 @@ reward | reward of the block | str
 timestamp | the time at which the block is occured on chain since Unix epoch | int
 status | status of the request | string
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","method":"getblockheaderbyheight","params":{"height":123456}}' http://localhost:17291/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 daemon.getBlockHeaderByHeight({
   height: 502345
@@ -615,7 +615,7 @@ daemon.getBlockHeaderByHeight({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $height = 123456;
@@ -623,21 +623,21 @@ $response = $catalystd->getBlockHeaderByHeight($height);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 height = 123456
 response = catalystd.get_block_header_by_height(height)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 height := 123456
 response := daemon.GetBlockHeaderByHeight(height)
 fmt.Println(response)
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -677,15 +677,15 @@ Argument | Description | Format
 -------- | ----------- | ------
 currency_id_blob | unique currency identifier | string
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","method":"getcurrencyid","params":{}}' http://localhost:17291/json_rpc
 ```
 
 
-<!--NodeJS-->
+
 ```js
 daemon.getCurrencyId().then((result) => {
   // do something
@@ -694,26 +694,26 @@ daemon.getCurrencyId().then((result) => {
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $response = $catalystd->getCurrencyId();
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 response = catalystd.get_currency_id()
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 response := daemon.GetCurrencyID()
 fmt.Println(response)
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -750,14 +750,14 @@ blocks   | **Array of** |                                       |
          | tx_count     | number of transactions in the block   | int
 
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","method":"f_blocks_list_json","params":{"height":500000}}' http://localhost:17291/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 daemon.getBlocks({
   height: 500000
@@ -768,7 +768,7 @@ daemon.getBlocks({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $height = 500000;
@@ -776,21 +776,21 @@ $response = $catalystd->getBlocks($height);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 height = 500000
 response = catalystd.get_blocks(height)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 height := 500000
 response := daemon.GetBlocks(height)
 fmt.Println(response)
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -860,14 +860,14 @@ fee | fees for the transaction | int
 hash | hash of the transaction | string
 size | size of the transaction | int
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","method":"f_block_json","params":{"hash":"980ff..."}}' http://localhost:17291/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 daemon.getBlock({
   hash: 'f11580d74134ac34673c74f8da458080aacbe1eccea05b197e9d10bde05139f5'
@@ -878,7 +878,7 @@ daemon.getBlock({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $hash = '980ff...';
@@ -886,21 +886,21 @@ $response = $catalystd->getBlock($hash);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 hash = '980ff...'
 response = catalystd.get_block(hash)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 hash := "980ff..."
 response := daemon.GetBlock(hash)
 fmt.Println(response)
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -994,14 +994,14 @@ version | - | int
 vin | array of input transactions | array
 vout | array of output transactions | array
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","method":"f_transaction_json","params":{"hash":"702ad..."}}' http://localhost:17291/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 daemon.getTransaction({
   hash: '702ad5bd04b9eff14b080d508f69a320da1909e989d6c163c18f80ae7a5ab832'
@@ -1012,7 +1012,7 @@ daemon.getTransaction({
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $hash = '702ad...';
@@ -1020,21 +1020,21 @@ $response = $catalystd->getTransaction($hash);
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 hash = '702ad...'
 response = catalystd.get_transaction(hash)
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 hash := "702ad..."
 response := daemon.GetTransaction(hash)
 fmt.Println(response)
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
@@ -1109,14 +1109,14 @@ fee | fees for the transaction | int
 hash | hash of the transaction | string
 size | size of the transaction | int
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Shell-->
-```sh
+
+
+```bash
 curl -d '{"jsonrpc":"2.0","method":"f_on_transactions_pool_json","params":{}}' http://localhost:17291/json_rpc
 ```
 
-<!--NodeJS-->
+
 ```js
 daemon.getTransactionPool().then((transactions) => {
   // do something
@@ -1125,26 +1125,26 @@ daemon.getTransactionPool().then((transactions) => {
 })
 ```
 
-<!--PHP-->
+
 ```php
 <?php
 $response = $catalystd->getTransactionPool();
 echo $response;
 ```
 
-<!--Python-->
+
 ```py
 response = catalystd.get_transaction_pool()
 print(response)
 ```
 
-<!--Go-->
+
 ```go
 response := daemon.GetTransactionPool()
 fmt.Println(response)
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+
 
 #### Expected Output:
 
