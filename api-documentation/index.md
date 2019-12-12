@@ -1,4 +1,4 @@
-# The API Platform Core Library
+# RPC API
 
 **Catalyst Core RPC APIs:**
 

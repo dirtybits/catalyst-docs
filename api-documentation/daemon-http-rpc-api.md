@@ -11,7 +11,7 @@ Currently, you can use the following official Turtle client bindings, they are t
 
 ## Installation
 
-```node
+```js
 npm i turtlecoin-rpc
 ```
 
@@ -136,7 +136,7 @@ No Input.
 | network_height | Current Network height | int    |
 | status         | Status of request      | string |
 
-```shell
+```bash
 curl http://localhost:17291/getheight
 ```
 
@@ -215,7 +215,7 @@ No Input.
 
 
 
-```shell
+```bash
 curl http://localhost:17291/getinfo
 ```
 
@@ -296,7 +296,7 @@ No Input
 
 
 
-```shell
+```bash
 curl http://localhost:17291/gettransactions
 ```
 
@@ -355,7 +355,7 @@ No Input.
 | peers    | array of peers (peer_ip:peer_port) | array  |
 | status   | Status of request                  | string |
 
-```shell
+```bash
 curl http://localhost:17291/getpeers
 ```
 
@@ -418,7 +418,7 @@ No Input.
 
 
 
-```shell
+```bash
 curl http://localhost:17291/feeinfo
 ```
 

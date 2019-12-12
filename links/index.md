@@ -30,7 +30,7 @@ We are working on getting catalyst listed on these platforms, though we need to 
 
 ## 3D nodes map
 
-![Screencast](3dmap.png)
+![3dmap](images/3dmap.png)
 
 - [3D Map](https://map.cryptocatalyst.net)
 - [GitHub](https://github.com/n8tb1t/catalyst-nodes-map)

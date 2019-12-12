@@ -16,24 +16,26 @@ force, fluent in English, Hebrew and Russian,
 hooked on crypto since 2016.
 Currently, working on the project full time.
 
+- **@TheGoldenSparrow**: is an old member of the crypto space community, thus prefer to stay anonymous, but those of you who know him, well aware that he is a very respectful member of the bitcointalk forum. @TheGoldenSparrow is an author of cat7 blog, where you can find an ample of technical information about Catalyst Network, he is currently representing Catalyst on various media platforms and helping the new members of the community on our Discord channel, where you can always find him..
+
 ## Friendly devs, who helped us to make `CX` better!
+- [Hooftly](https://github.com/CalexCore) AmityCoin
 - [NinjaCoin-Master](https://github.com/NinjaCoin-Master) NinjaCoin
-- [bobbieltd](https://github.com/bobbieltd) BTCMZ
-- [zpalmtree](https://github.com/zpalmtree) turtlecoin
-- [TheDevMinerTV](https://github.com/TheDevMinerTV/) turtlecoin
-- [LeinAd2k](https://github.com/LeinAd2k) NashCash
 - [Lithy / リーチ](https://github.com/LithyRiolu) Lithe-Project
-- Pluto|WRKZ
+- [zpalmtree](https://github.com/zpalmtree) turtlecoin
+- [LeinAd2k](https://github.com/LeinAd2k) NashCash
+- [CapEtn](https://github.com/wrkzcoin) WRKZCoin
 
 And many others.
 
 ## Community supporters:
 
+- @Synku
+- @Chef
 - @WicheR
-- @Valen
-- @xav
-- @TheGoldenSparrow
-- @Hooftly
-- @CapEtn
 - @Rachel
+- @Valen
+- @MunchieHigh420
+- @xav
+- @Brendyn
 
